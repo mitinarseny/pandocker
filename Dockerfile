@@ -25,6 +25,8 @@ RUN apt-get update \
     /var/lib/apt/lists/* \
     /etc/ssh/ssh_host_*
 
+RUN curl -sL ""
+
 ARG PANDOC_VERSION=2.7.3
 RUN curl -sL "https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-${PANDOC_VERSION}-1-amd64.deb" --output /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb \
   && dpkg -i /tmp/pandoc-${PANDOC_VERSION}-1-amd64.deb \
@@ -32,5 +34,5 @@ RUN curl -sL "https://github.com/jgm/pandoc/releases/download/2.7.3/pandoc-${PAN
 
 WORKDIR /data
 
-ENTRYPOINT ["pandoc"]
+ENTRYPOINT ["/usr/bin/pandoc"]
 CMD ["--help"]
