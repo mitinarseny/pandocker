@@ -36,4 +36,5 @@ RUN PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1 npm install --global mermaid-filter
 
 WORKDIR /data
 
+ENTRYPOINT [""]
 CMD ["pandoc", "--help"]
